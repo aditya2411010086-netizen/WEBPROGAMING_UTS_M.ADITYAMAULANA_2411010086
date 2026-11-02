@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTS Web Programing - Kalkulator</title>
+    <style>
+        /* Styling Dasar Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        /* Desain Header */
+        header {
+            background-color: #00bcd4;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.9rem;
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Desain Konten Utama (Main) */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .calculator-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .calculator-card h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .form-group input, 
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        button {
+            background-color: #00bcd4;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+
+        button:hover {
+            background-color: #0097a7;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: center;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        /* Desain Footer */
+        footer {
+            background-color: #00bcd4;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bagian Header dengan Nama dan NPM -->
+    <header>
+        <div class="logo">MY APP KALKULATOR ADIT - 24411010086</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Bagian Konten Utama -->
+    <main>
+        <div class="calculator-card">
+            <h2>Operasi Matematika dengan JavaScript</h2>
+            
+            <div class="form-group">
+                <label for="angka1">Angka Pertama:</label>
+                <input type="number" id="angka1" placeholder="Masukkan angka pertama">
+            </div>
+
+            <div class="form-group">
+                <label for="angka2">Angka Kedua:</label>
+                <input type="number" id="angka2" placeholder="Masukkan angka kedua">
+            </div>
+
+            <div class="form-group">
+                <label for="operasi">Pilih Operasi:</label>
+                <select id="operasi">
+                    <option value="tambah">Penjumlahan (+)</option>
+                    <option value="kurang">Pengurangan (-)</option>
+                    <option value="kali">Perkalian (×)</option>
+                    <option value="bagi">Pembagian (÷)</option>
+                </select>
+            </div>
+
+            <button onclick="hitung()">Hitung</button>
+
+            <div class="result" id="hasil"></div>
+        </div>
+    </main>
+
+    <!-- Bagian Footer -->
+    <footer>
+        &copy; 2026 My App, All Rights Reserved.
+    </footer>
+
+    <!-- Logika JavaScript -->
+    <script>
+        function hitung() {
+            const angka1 = parseFloat(document.getElementById('angka1').value);
+            const angka2 = parseFloat(document.getElementById('angka2').value);
+            const operasi = document.getElementById('operasi').value;
+            const hasilDiv = document.getElementById('hasil');
+
+            if (isNaN(angka1) || isNaN(angka2)) {
+                hasilDiv.innerHTML = "Harap masukkan angka yang valid!";
+                return;
+            }
+
+            let hasil = 0;
+            switch (operasi) {
+                case 'tambah':
+                    hasil = angka1 + angka2;
+                    break;
+                case 'kurang':
+                    hasil = angka1 - angka2;
+                    break;
+                case 'kali':
+                    hasil = angka1 * angka2;
+                    break;
+                case 'bagi':
+                    if (angka2 === 0) {
+                        hasilDiv.innerHTML = "Tidak dapat membagi dengan nol!";
+                        return;
+                    }
+                    hasil = angka1 / angka2;
+                    break;
+            }
+
+            hasilDiv.innerHTML = `Hasil: ${hasil}`;
+        }
+    </script>
+</body>
+</html>
