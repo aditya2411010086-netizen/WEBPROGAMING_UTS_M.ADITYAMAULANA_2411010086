@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTS Web Programing - Kalkulator & Profil</title>
+    <!-- Menghubungkan File CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Bagian Header -->
+    <header>
+        <div class="logo">MyApp CalculatorADITAJAGAIS</div>
+        <nav>
+            <a href="#kalkulator">Kalkulator</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Bagian Konten Utama -->
+    <main>
+        <!-- Bagian Kalkulator -->
+        <section id="kalkulator" class="section-container">
+            <div class="calculator-card">
+                <h2>Operasi Matematika dengan JavaScript</h2>
+                
+                <div class="form-group">
+                    <label for="angka1">Angka Pertama:</label>
+                    <input type="number" id="angka1" placeholder="Masukkan angka pertama">
+                </div>
+
+                <div class="form-group">
+                    <label for="angka2">Angka Kedua:</label>
+                    <input type="number" id="angka2" placeholder="Masukkan angka kedua">
+                </div>
+
+                <div class="form-group">
+                    <label for="operasi">Pilih Operasi:</label>
+                    <select id="operasi">
+                        <option value="tambah">Penjumlahan (+)</option>
+                        <option value="kurang">Pengurangan (-)</option>
+                        <option value="kali">Perkalian (×)</option>
+                        <option value="bagi">Pembagian (÷)</option>
+                    </select>
+                </div>
+
+                <button onclick="hitung()">Hitung</button>
+
+                <div class="result" id="hasil"></div>
+            </div>
+        </section>
+
+        <!-- Bagian About -->
+        <section id="about" class="section-container">
+            <div class="about-card">
+                <h2>Tentang Pengembang</h2>
+                <div class="profile-badge">Mahasiswa Teknik Informatika</div>
+                
+                <div class="about-info">
+                    <p><strong>Nama:</strong> M. ADITYA MAULANA</p>
+                    <p><strong>NPM:</strong> 2411010086</p>
+                    <p><strong>Fakultas:</strong> Ilmu Komputer</p>
+                    <p><strong>Perguruan Tinggi:</strong> IIB Darmajaya</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian Contact (Formalitas / Kosong) -->
+        <section id="contact" class="section-container">
+            <div class="contact-card">
+                <h2>Kontak</h2>
+                <div class="contact-info">
+                    <p class="placeholder-text">-</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bagian Footer -->
+    <footer>
+        &copy; 2026 MyApp CalculatorADITAJAGAIS - All Rights Reserved.
+    </footer>
+
+    <!-- Menghubungkan File JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
